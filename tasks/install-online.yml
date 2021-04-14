@@ -26,10 +26,10 @@
       user: '{{ apigee_repo_user | default(default_apigee_repo_user) }}'
       password: '{{ apigee_repo_password | default(default_apigee_repo_password) }}'
     register: results
-    environment:
-      no_proxy: "{{ no_proxy | default('') }}"
-      http_proxy: "{{ http_proxy | default('') }}"
-      https_proxy: "{{ https_proxy | default('') }}"
+#     environment:
+#       no_proxy: "{{ no_proxy | default('') }}"
+#       http_proxy: "{{ http_proxy | default('') }}"
+#       https_proxy: "{{ https_proxy | default('') }}"
 
   - name: Assert script download
     become: yes
@@ -46,10 +46,10 @@
     - name: Download bootstrap using wget
       become: true
       shell: "wget {{ apigee_repo_url | default(default_apigee_repo_url) }}/{{ bootstrap_file_name }} -O {{ bootstrap_file_path }}"
-      environment:
-        no_proxy: "{{ no_proxy | default('') }}"
-        http_proxy: "{{ http_proxy | default('') }}"
-        https_proxy: "{{ https_proxy | default('') }}"
+#       environment:
+#         no_proxy: "{{ no_proxy | default('') }}"
+#         http_proxy: "{{ http_proxy | default('') }}"
+#         https_proxy: "{{ https_proxy | default('') }}"
 
 - name: Assert bootstrap script exists
   become: yes
