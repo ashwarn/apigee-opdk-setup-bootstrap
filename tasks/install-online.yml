@@ -11,7 +11,7 @@
     bootstrap_file_name: "bootstrap.sh"
   when: opdk_version is version_compare('4.16.01', '==')
 
-- name: Construct Bootstrap Path for Version 4.16.01
+- name: Construct Bootstrap Path for Version {{ opdk_version }} 
   set_fact:
     cacheable: yes
     bootstrap_file_path: "{{ opdk_resources_path }}/{{ bootstrap_file_name }}"
